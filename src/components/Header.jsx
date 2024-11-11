@@ -2,7 +2,9 @@ import { IoMdPerson } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header=()=>{
+ const bag=   useSelector(store=>store.bag);
 return <header>
 <div className="logo_container">
     <Link to="/"><img className="myntra_home" src="../images/myntra_logo.webp" alt="Myntra Home" /></Link>
@@ -33,7 +35,7 @@ return <header>
     <Link className="action_container" to="/bag">
     <FaShoppingBag />
         <span className="action_name">Bag</span>
-        <span className="bag-item-count">0</span>
+        <span className="bag-item-count">{bag.length}</span>
     </Link>
 </div>
 </header>
